@@ -36,6 +36,20 @@ def unauthorized_error(error):
     return jsonify({"error": "Unauthorized"}), 401
 
 
+@app.errorhandler(403)
+def forbidden_error(error):
+    """
+    Returns a JSON response with a "Forbidden" error message and a
+    status code of 403.
+    Args:
+        error: The error message.
+    Returns:
+        A JSON response with a "Forbidden" error message and a status
+        code of 403.
+    """
+    return jsonify({"error": "Forbidden"}), 403
+
+
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
     port = getenv("API_PORT", "5000")
