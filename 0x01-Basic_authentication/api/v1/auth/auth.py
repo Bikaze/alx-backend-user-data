@@ -3,6 +3,7 @@
 Auth module for the API
 """
 from flask import request
+import fnmatch
 from typing import List, TypeVar
 
 
@@ -59,7 +60,7 @@ class Auth:
         for excluded_path in excluded_paths:
             if excluded_path[-1] != '/':
                 excluded_path += '/'
-            if path == excluded_path:
+            if fnmatch.fnmatch(path, excluded_path):
                 return False
 
         return True
