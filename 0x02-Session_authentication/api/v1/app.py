@@ -2,15 +2,11 @@
 """
 Route module for the API
 """
-
-
 import os
 from os import getenv
 from typing import Tuple
-
 from flask import Flask, abort, jsonify, request
 from flask_cors import CORS, cross_origin
-
 from api.v1.auth.auth import Auth
 from api.v1.auth.basic_auth import BasicAuth
 from api.v1.auth.session_auth import SessionAuth
